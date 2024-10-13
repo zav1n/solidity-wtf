@@ -13,6 +13,7 @@ contract BigBank is Bank {
         super.deposit();
     }
 
+
     function transferOwnership(address newAddr) external {
         require(newAddr != address(0), "invalid address");
         require(newAddr != admin, "exists the address");
