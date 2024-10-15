@@ -43,6 +43,14 @@ contract Token {
         emit Transfer(msg.sender, _to, _value);
         return true;   
     }
+    
+    function _transfer(address _from, address _to, uint256 _value) internal {
+        balances[_from] -= _value;
+        balances[_to] += _value;
+        emit Transfer(_from, _to, _value);
+    }
+    
+    
 
     function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
         // write your code here
