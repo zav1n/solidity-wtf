@@ -71,4 +71,7 @@ contract BaseERC20 {
         // write your code here  
         return allowances[_owner][_spender];
     }
+
+    // 可以添加一个 transferWithCallback Hook
+    // function transferWithCallback(_to, _value);
 }
