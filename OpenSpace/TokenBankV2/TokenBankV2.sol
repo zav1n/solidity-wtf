@@ -10,6 +10,7 @@ import "./TokenBank.sol";
 
 contract TokenBankV2 is TokenBank {
     function tokensReceived(address from,uint256 amount) public {
+        require(msg.sender == address(token) , "you isn't token owner");
         balances[from] += amount;
     }
 }
