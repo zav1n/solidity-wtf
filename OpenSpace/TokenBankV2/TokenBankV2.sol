@@ -9,8 +9,12 @@ import "./TokenBank.sol";
 // 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
 
 contract TokenBankV2 is TokenBank {
+    IERC20 erc20Token;
+    constructor(IERC20 erc20Addr) {
+        erc20Token = IERC20(erc20Addr);
+    }
     function tokensReceived(address from,uint256 amount) public {
-        require(msg.sender == from , "you isn't token owner");
+        require(msg.sender == address(erc20Token) , "you isn't token owner");
         balances[from] += amount;
     }
 }
